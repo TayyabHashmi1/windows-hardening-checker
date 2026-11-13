@@ -1,0 +1,28 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Hardening report</title><style>body{font-family:Segoe UI,system-ui,sans-serif;margin:32px;color:#14202b;background:#f6f8fa}
+h1{margin:0 0 4px}p.sub{color:#5a6b7b;margin:0 0 24px}
+.cards{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.card{background:#fff;border:1px solid #d8e0e8;border-radius:10px;padding:14px 18px;min-width:140px}
+.card b{display:block;font-size:28px}
+table{border-collapse:collapse;width:100%;background:#fff;border:1px solid #d8e0e8}
+th,td{padding:9px 12px;border-bottom:1px solid #e6ecf1;text-align:left;font-size:14px;vertical-align:top}
+th{background:#eef2f6}
+.pill{display:inline-block;min-width:64px;text-align:center;border-radius:999px;padding:2px 10px;font-weight:600;color:#fff}
+.pass{background:#1a7f4b}.fail{background:#c0392b}.unknown{background:#6b7a8a}
+.note{color:#5a6b7b;font-size:13px;margin-top:16px}</style></head><body>
+<h1>Windows hardening report</h1>
+<p class="sub">Generated 2026-11-12 16:06 from fictional demo data. 10 checks.</p>
+<div class="cards"><div class="card"><b>3</b>Pass</div><div class="card"><b>6</b>Fail</div><div class="card"><b>1</b>Unknown</div></div>
+<table><thead><tr><th>Status</th><th>Id</th><th>Area</th><th>Check</th><th>Expected</th><th>Actual</th><th>Severity</th><th>Fix</th></tr></thead><tbody>
+<tr><td><span class="pill fail">Fail</span></td><td>H01</td><td>Network</td><td>Windows Firewall on for all profiles</td><td>Domain, Private and Public enabled</td><td>Disabled: Public</td><td>High</td><td>Enable the firewall on every profile.</td></tr>
+<tr><td><span class="pill fail">Fail</span></td><td>H02</td><td>Network</td><td>SMBv1 server disabled</td><td>Disabled</td><td>Enabled</td><td>High</td><td>Disable SMBv1 and remove the feature if nothing needs it.</td></tr>
+<tr><td><span class="pill fail">Fail</span></td><td>H03</td><td>Remote access</td><td>RDP requires Network Level Authentication</td><td>NLA required when RDP is on</td><td>RDP on, NLA not required</td><td>High</td><td>Require Network Level Authentication for Remote Desktop.</td></tr>
+<tr><td><span class="pill fail">Fail</span></td><td>H05</td><td>Accounts</td><td>Account lockout threshold set</td><td>Greater than 0</td><td>Never lock out</td><td>Medium</td><td>Set an account lockout threshold.</td></tr>
+<tr><td><span class="pill fail">Fail</span></td><td>H06</td><td>Accounts</td><td>Minimum password length</td><td>At least 14</td><td>12</td><td>Medium</td><td>Raise the minimum password length to 14.</td></tr>
+<tr><td><span class="pill fail">Fail</span></td><td>H07</td><td>Logging</td><td>Logon and account management auditing</td><td>Success and Failure for both</td><td>Logon: Success and Failure; User Account Management: Success</td><td>Medium</td><td>Audit success and failure for Logon and User Account Management.</td></tr>
+<tr><td><span class="pill unknown">Unknown</span></td><td>H08</td><td>Protection</td><td>Defender real-time protection on</td><td>On, when Defender is the active antivirus</td><td>Defender is not the active antivirus. Check the vendor product. Registered antivirus: Contoso Endpoint Protection (fictional).</td><td>High</td><td>Check the active antivirus product by hand.</td></tr>
+<tr><td><span class="pill pass">Pass</span></td><td>H04</td><td>Accounts</td><td>Guest account disabled</td><td>Disabled</td><td>Disabled</td><td>Medium</td><td></td></tr>
+<tr><td><span class="pill pass">Pass</span></td><td>H09</td><td>Patching</td><td>Automatic updates not disabled by policy</td><td>Not disabled</td><td>Not disabled</td><td>Medium</td><td></td></tr>
+<tr><td><span class="pill pass">Pass</span></td><td>H10</td><td>Patching</td><td>Recent patch installed</td><td>Newest hotfix within 45 days</td><td>Newest hotfix is 21 days old</td><td>Medium</td><td></td></tr>
+</tbody></table>
+<p class="note">Read-only check. Unknown means the setting could not be read, often because the session is not elevated. It is not a pass. This is a small baseline, not a full benchmark. No benchmark control mapping is claimed.</p>
+</body></html>
